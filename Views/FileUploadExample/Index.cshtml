@@ -1,0 +1,23 @@
+﻿@model FileUploadExample.Models.FileUpload 
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+
+<form enctype="multipart/form-data" method="post" asp-action="Upload">
+    @TempData["Message"]
+    <dl>
+        <dt>
+            <label asp-for="@Model.FormFile"></label>
+        </dt>
+        <dt>
+
+            <input asp-for="@Model.FormFile" type="file" />
+        </dt>
+        <dt>
+            <input type="submit" value="Upload Image" class="btn btn-primary" />
+        </dt>
+    </dl>
+
+</form>
+
