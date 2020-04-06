@@ -28,6 +28,7 @@ namespace FileUploadExample.Controllers
         [HttpPost]
         public IActionResult Upload(FileUpload fileUpload)
         {
+            
             ViewBag.Error = "No";
             if(fileUpload.FormFile!= null)
             {
@@ -38,6 +39,8 @@ namespace FileUploadExample.Controllers
                     && !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
                 {
                     TempData["Message"] = "Not Accepted";
+                    
+                    TempData["Messsage"] = "Only .gif, .jpg, .jpeg, .png format is allowed";
                     return Redirect("Index");
                 }
                 else
@@ -48,6 +51,7 @@ namespace FileUploadExample.Controllers
                     fileUpload.FormFile.CopyTo(stream);
                 }
             }
+            
             return Redirect("/");
         }
         
