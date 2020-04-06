@@ -42,6 +42,7 @@ namespace FileUploadExample.Controllers
                 }
                 else
                 {
+                    TempData["Message"] = "Success";
                     string filePath = $"{_env.WebRootPath}/images/{fileUpload.FormFile.FileName}";
                     var stream = System.IO.File.Create(filePath);
                     fileUpload.FormFile.CopyTo(stream);
